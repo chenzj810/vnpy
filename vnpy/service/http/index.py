@@ -34,7 +34,7 @@ class HttpHandler(object):
     """主引擎"""
 
     #----------------------------------------------------------------------
-    def __init__(self, eventEngine):
+    def __init__(self):
         """Constructor"""
         tornado.options.parse_command_line()
         app = tornado.web.Application(handlers=routeHandler, debug = True)
