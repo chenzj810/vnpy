@@ -13,9 +13,9 @@
 import talib
 import numpy as np
 
-from vnpy.service.main.vtObject import VtBarData
-from vnpy.service.language.vtConstant import EMPTY_STRING
-from vnpy.service.app.stubStrategy.stubTemplate import StubTemplate
+from vnpy.trader.main.vtObject import VtBarData
+from vnpy.trader.language.vtConstant import EMPTY_STRING
+from vnpy.trader.app.stubStrategy.stubTemplate import StubTemplate
 
 
 ########################################################################

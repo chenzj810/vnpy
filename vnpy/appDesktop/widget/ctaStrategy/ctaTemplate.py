@@ -4,9 +4,9 @@
 本文件包含了CTA引擎中的策略开发用模板，开发策略时需要继承CtaTemplate类。
 '''
 
-from vnpy.service.language.vtConstant import *
+from vnpy.trader.language.vtConstant import *
 
-from vnpy.service.app.ctaStrategy.ctaBase import *
+from vnpy.trader.app.ctaStrategy.ctaBase import *
 
 
 ########################################################################

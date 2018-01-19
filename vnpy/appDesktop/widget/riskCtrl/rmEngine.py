@@ -12,9 +12,9 @@ import os
 import platform
 
 from vnpy.event import Event
-from vnpy.service.vtEvent import *
-from vnpy.service.language.vtConstant import *
-from vnpy.service.vtGateway import VtLogData
+from vnpy.trader.vtEvent import *
+from vnpy.trader.language.vtConstant import *
+from vnpy.trader.vtGateway import VtLogData
 
 
 ########################################################################

@@ -9,7 +9,7 @@ same as CTA engine. Real trading code can be directly used for backtesting.
 
 
 
-from vnpy.service.main.vtObject import VtTickData, VtBarData
+from vnpy.trader.main.vtObject import VtTickData, VtBarData
 from ctaBacktesting import *
 
 class BacktestEngineMultiTF(BacktestingEngine):

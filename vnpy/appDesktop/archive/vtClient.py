@@ -10,8 +10,8 @@ sys.setdefaultencoding('utf8')
 from vnpy.event import EventEngine2
 from vnpy.rpc import RpcClient
 
-from vnpy.service.config.vtGlobal import globalSetting
-from vnpy.service.main.vtEngine import MainEngine
+from vnpy.trader.config.vtGlobal import globalSetting
+from vnpy.trader.main.vtEngine import MainEngine
 from vnpy.appDesktop.windows.uiQt import qApp
 from vnpy.appDesktop.windows.uiMainWindow import MainWindow
 

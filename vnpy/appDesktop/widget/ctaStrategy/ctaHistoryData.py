@@ -13,10 +13,10 @@ from multiprocessing.pool import ThreadPool
 
 import pymongo
 
-from vnpy.service.config.vtGlobal import globalSetting
-from vnpy.service.language.vtConstant import *
-from vnpy.service.main.vtObject import VtBarData
-from vnpy.service.app.ctaStrategy.datayesClient import DatayesClient
+from vnpy.trader.config.vtGlobal import globalSetting
+from vnpy.trader.language.vtConstant import *
+from vnpy.trader.main.vtObject import VtBarData
+from vnpy.trader.app.ctaStrategy.datayesClient import DatayesClient
 
 
 # 以下为vn.trader和通联数据规定的交易所代码映射 

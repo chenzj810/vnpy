@@ -9,7 +9,7 @@ from threading import Thread
 
 from vnpy.event import EventEngine2
 from vnpy.rpc import RpcServer
-from vnpy.service.main.vtEngine import MainEngine
+from vnpy.trader.main.vtEngine import MainEngine
 
 
 ########################################################################

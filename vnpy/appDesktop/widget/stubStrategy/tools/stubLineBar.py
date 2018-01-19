@@ -4,7 +4,7 @@
 # WeChat/QQ: 28888502
 
 from vtConstant import *
-from vnpy.service.main.vtObject import VtBarData
+from vnpy.trader.main.vtObject import VtBarData
 
 from datetime import datetime
 

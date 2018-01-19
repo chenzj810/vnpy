@@ -6,9 +6,9 @@ DualThrust交易策略
 
 from datetime import time
 
-from vnpy.service.main.vtObject import VtBarData
-from vnpy.service.language.vtConstant import EMPTY_STRING
-from vnpy.service.app.wudityStrategy.StrategyTemplate import StrategyTemplate
+from vnpy.trader.main.vtObject import VtBarData
+from vnpy.trader.language.vtConstant import EMPTY_STRING
+from vnpy.trader.app.wudityStrategy.StrategyTemplate import StrategyTemplate
 
 
 

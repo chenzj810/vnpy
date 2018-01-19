@@ -6,10 +6,10 @@ STUB模块相关的GUI控制组件
 
 
 from vnpy.event import Event
-from vnpy.service.vtEvent import *
+from vnpy.trader.vtEvent import *
 from vnpy.appDesktop.windows.uiBasicWidget import QtGui, QtCore, QtWidgets, BasicCell
 
-from vnpy.service.app.stubStrategy.language import text
+from vnpy.trader.app.stubStrategy.language import text
 
 
 ########################################################################

@@ -2,8 +2,8 @@
 
 import psutil
 
-from vnpy.service.main.vtFunction import loadIconPath
-from vnpy.service.config.vtGlobal import globalSetting
+from vnpy.trader.main.vtFunction import loadIconPath
+from vnpy.trader.config.vtGlobal import globalSetting
 from vnpy.appDesktop.windows.uiBasicWidget import *
 
 
@@ -30,9 +30,9 @@ class MainWindow(QtWidgets.QMainWindow):
         # begin chenzejun
         self.appDetailList = self.mainEngine.getAllAppDetails()
         # strategy
-        self.strategyDetailList = self.mainEngine.getAllStrategyDetails()
+        self.strategyDetailList = self.mainEngine.getAllStrategyList()
         # risk
-        self.riskCtrlDetailList = self.mainEngine.getAllRiskDetails()
+        self.riskCtrlDetailList = self.mainEngine.getAllRiskCtrlList()
         # end chenzejun
 
         self.initUi()

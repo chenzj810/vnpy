@@ -12,12 +12,12 @@ from itertools import product
 import multiprocessing
 import pymongo
 
-from vnpy.service.config.vtGlobal import globalSetting
-from vnpy.service.main.vtObject import VtTickData, VtBarData
-from vnpy.service.language.vtConstant import *
-from vnpy.service.vtGateway import VtOrderData, VtTradeData
+from vnpy.trader.config.vtGlobal import globalSetting
+from vnpy.trader.main.vtObject import VtTickData, VtBarData
+from vnpy.trader.language.vtConstant import *
+from vnpy.trader.vtGateway import VtOrderData, VtTradeData
 
-from vnpy.service.app.ctaStrategy.ctaBase import *
+from vnpy.trader.app.ctaStrategy.ctaBase import *
 
 
 ########################################################################

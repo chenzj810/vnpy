@@ -5,10 +5,10 @@
 '''
 
 
-from vnpy.service.event import Event
+from vnpy.trader.event import Event
 
 from vnpy.appDesktop.windows.uiBasicWidget import QtGui, QtWidgets, QtCore
-from vnpy.service.tradeRiskCtrl.language import text
+from vnpy.trader.tradeRiskCtrl.language import text
 
 
 ########################################################################

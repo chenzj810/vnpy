@@ -6,13 +6,13 @@ import os
 import platform
 from collections import OrderedDict
 
-from vnpy.service.event import *
-from vnpy.service.event.vtEvent import *
-from vnpy.service.main.vtFunction import *
-from vnpy.service.tradeGateway.gateway.vtGateway import *
-from vnpy.service.language import vtText
+from vnpy.trader.event import *
+from vnpy.trader.event.vtEvent import *
+from vnpy.trader.main.vtFunction import *
+from vnpy.trader.gatewayTrade.vtGateway import *
+from vnpy.trader.language import vtText
 from vnpy.appDesktop.windows.uiQt import QtGui, QtWidgets, QtCore, BASIC_FONT
-#from vnpy.service.main.vtObject import VtOrderReq
+#from vnpy.trader.main.vtObject import VtOrderReq
 
 COLOR_RED = QtGui.QColor('red')
 COLOR_GREEN = QtGui.QColor('green')
@@ -1435,12 +1435,12 @@ class TaskWidget(QtWidgets.QFrame):
 
 
         # 添加策略名称的显示
-        l = mainEngine.getAllStrategyDetails()
+        l = mainEngine.getAllStrategyList()
         strategyNameList = [d['appDisplayName'] for d in l]
         self.stragegyList.extend(strategyNameList)
 
         # 添加风控管理名称的显示
-        l = mainEngine.getAllRiskDetails()
+        l = mainEngine.getAllRiskCtrlList()
         riskNameList = [d['appDisplayName'] for d in l]
         self.riskCtrlList.extend(riskNameList)
 

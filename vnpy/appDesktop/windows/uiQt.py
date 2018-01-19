@@ -4,8 +4,8 @@ import platform
 
 from qtpy import QtWidgets, QtGui, QtCore
 
-from vnpy.service.config.vtGlobal import globalSetting
-from vnpy.service.main.vtFunction import loadIconPath
+from vnpy.trader.config.vtGlobal import globalSetting
+from vnpy.trader.main.vtFunction import loadIconPath
 
 # 创建Qt应用对象
 qApp = QtWidgets.QApplication([])

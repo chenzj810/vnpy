@@ -16,23 +16,23 @@ reload(sys)
 #sys.setdefaultencoding('utf8')
 
 # vn.trader模块
-from vnpy.service.event import EventEngine
-from vnpy.service.main.vtEngine import MainEngine
+from vnpy.trader.event import EventEngine
+from vnpy.trader.main.vtEngine import MainEngine
 from vnpy.appDesktop.windows.uiQt import qApp
 from vnpy.appDesktop.windows.uiMainWindow import MainWindow
 
 
 # 加载底层接口
-from vnpy.service.tradeGateway.gateway import eastMoneyGateway
+from vnpy.trader.gatewayTrade import eastMoneyGateway
 
 # 加载上层应用
-#from vnpy.service.app import dataRecorder
-#from vnpy.service.language import riskManager
-#from vnpy.service.language import strategyManager
-from vnpy.service.tradeStrategy import strategyAtrRsi
-from vnpy.service.tradeStrategy import strategyDualThrust
-from vnpy.service.tradeStrategy import strategyMacdShake
-from vnpy.service.tradeRiskCtrl import riskCtrl1
+#from vnpy.trader.app import dataRecorder
+#from vnpy.trader.language import riskManager
+#from vnpy.trader.language import strategyManager
+from vnpy.trader.tradeStrategy import strategyAtrRsi
+from vnpy.trader.tradeStrategy import strategyDualThrust
+from vnpy.trader.tradeStrategy import strategyMacdShake
+from vnpy.trader.tradeRiskCtrl import riskCtrl1
 
 
 

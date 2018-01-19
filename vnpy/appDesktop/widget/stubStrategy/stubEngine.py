@@ -25,14 +25,14 @@ from collections import OrderedDict
 from datetime import datetime, timedelta
 
 from vnpy.event import Event
-from vnpy.service.vtEvent import *
-from vnpy.service.language.vtConstant import *
-from vnpy.service.main.vtObject import VtTickData, VtBarData
-from vnpy.service.vtGateway import VtSubscribeReq, VtOrderReq, VtCancelOrderReq, VtLogData
-from vnpy.service.main.vtFunction import todayDate
+from vnpy.trader.vtEvent import *
+from vnpy.trader.language.vtConstant import *
+from vnpy.trader.main.vtObject import VtTickData, VtBarData
+from vnpy.trader.vtGateway import VtSubscribeReq, VtOrderReq, VtCancelOrderReq, VtLogData
+from vnpy.trader.main.vtFunction import todayDate
 
-from vnpy.service.app.stubStrategy.stubBase import *
-from vnpy.service.app.stubStrategy.strategy import STRATEGY_CLASS
+from vnpy.trader.app.stubStrategy.stubBase import *
+from vnpy.trader.app.stubStrategy.strategy import STRATEGY_CLASS
 
 
 

@@ -14,13 +14,13 @@ from datetime import datetime, timedelta
 from queue import Queue, Empty
 from threading import Thread
 
-from vnpy.service.event import Event
-from vnpy.service.event.vtEvent import *
-from vnpy.service.main.vtFunction import todayDate
-from vnpy.service.main.vtObject import VtSubscribeReq, VtLogData, VtBarData, VtTickData
+from vnpy.trader.event import Event
+from vnpy.trader.event.vtEvent import *
+from vnpy.trader.main.vtFunction import todayDate
+from vnpy.trader.main.vtObject import VtSubscribeReq, VtLogData, VtBarData, VtTickData
 
-from vnpy.service.app.dataRecorder.drBase import *
-from vnpy.service.app.dataRecorder.language import text
+from vnpy.trader.app.dataRecorder.drBase import *
+from vnpy.trader.app.dataRecorder.language import text
 
 
 ########################################################################

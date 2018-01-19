@@ -4,9 +4,9 @@
 本文件包含了STUB引擎中的策略开发用模板，开发策略时需要继承StubTemplate类。
 '''
 
-from vnpy.service.language.vtConstant import *
+from vnpy.trader.language.vtConstant import *
 
-from vnpy.service.app.stubStrategy.stubBase import *
+from vnpy.trader.app.stubStrategy.stubBase import *
 
 
 ########################################################################

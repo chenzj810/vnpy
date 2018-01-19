@@ -8,10 +8,10 @@ import json
 
 from qtpy import QtWidgets, QtGui, QtCore
 
-from vnpy.service.event import Event
-from vnpy.service.event.vtEvent import *
+from vnpy.trader.event import Event
+from vnpy.trader.event.vtEvent import *
 
-from vnpy.service.app.dataRecorder.language import text
+from vnpy.trader.app.dataRecorder.language import text
 
 
 ########################################################################
