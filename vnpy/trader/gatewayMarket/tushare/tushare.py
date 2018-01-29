@@ -226,7 +226,7 @@ class TushareDataApi(VtMarket):
 
 
         except pymongo.errors.DuplicateKeyError:
-            print("DuplicateKey")
+            print("pymongo error, DuplicateKey")
 
         self.gateway.onTick(tick)
 
@@ -251,7 +251,7 @@ class TushareDataApi(VtMarket):
 
 
         except pymongo.errors.DuplicateKeyError:
-            print("DuplicateKey")
+            print("pymongo error, DuplicateKey")
 
         #记录数据库
         #self.gateway.onObjDict(self.stockDict)
@@ -283,10 +283,19 @@ class TushareDataApi(VtMarket):
         except:
             pass
 
+
+        print("insert basic report to db...")
         try:
+            '''
+            #update,$set:更新操作，multi=True：是否对查询到的全部数据进行操作，upsert=True：如果找不到查询的结果是否插入一条数据
+            jsonList = json.loads(df.to_json(orient='records'))
+            for item in jsonList:
+                print(item)
+                collection.save(item)
+            '''
             collection.insert(json.loads(df.to_json(orient='records')))
         except pymongo.errors.DuplicateKeyError:
-            print("DuplicateKey")
+            print("pymongo error, DuplicateKey")
         return
 
 

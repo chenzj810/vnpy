@@ -20,8 +20,7 @@ class TaskHandler(tornado.web.RequestHandler):
     #----------------------------------------------------------------------
     def get(self, *args, **kwargs):
 
-        print(self.request.headers.get("Content-Type"), 'args:', str(args))
-
+        print(self.request.method, self.request.uri, 'args:', str(args))
         self.set_header("Access-Control-Allow-Origin", "*")
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
@@ -46,9 +45,7 @@ class TaskHandler(tornado.web.RequestHandler):
     #----------------------------------------------------------------------
     def post(self, *args, **kwargs):
 
-        #print(self.request.headers.get("Content-Type"), 'args:', str(args))
-        print(self.request.method, 'args:', str(args))
-
+        print(self.request.method, self.request.uri, 'args:', str(args))
         self.set_header("Access-Control-Allow-Origin", "*")
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
@@ -98,8 +95,7 @@ class TaskHandler(tornado.web.RequestHandler):
 
                         "strategy_name":item.strategy_name,
                         "riskctrl_name":item.riskctrl_name,
-                        "market_gateway":item.market_gateway,
-                        "trade_gateway":item.trade_gateway
+                        "gateway_name":item.gateway_name,
                         }
 
                 #print("stock_name:", item.stock_name, "trade_gateway:",item.trade_gateway)
@@ -144,14 +140,9 @@ class TaskHandler(tornado.web.RequestHandler):
             task.riskctrl_name = 'default'
 
         try:
-            task.market_gateway = self.get_argument('market_gateway')
+            task.gateway_name = self.get_argument('gateway_name')
         except:
-            task.market_gateway = 'default'
-
-        try:
-            task.trade_gateway = self.get_argument('trade_gateway')
-        except:
-            task.trade_gateway = 'default'
+            task.gateway_name = 'default'
 
 
         task.save()

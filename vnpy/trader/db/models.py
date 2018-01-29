@@ -15,8 +15,8 @@ class DBHandler(object):
 
         self.mainEngine = mainEngine
 
-        connect('database', host='localhost', port=27017)
-        print('connect to database db')
+        connect('vnpydb', host='localhost', port=27017)
+        print('connect to vnpydb db')
 
         self.client = MongoClient("localhost", 27017)
         self.taskHandler = dbTask.DBTaskHandler

@@ -19,8 +19,7 @@ class StockHandler(tornado.web.RequestHandler):
     #----------------------------------------------------------------------
     def get(self, *args, **kwargs):
 
-        print(self.request.method, 'args:', str(args))
-
+        print(self.request.method, self.request.uri, 'args:', str(args))
         self.set_header("Access-Control-Allow-Origin", "*")
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
@@ -38,8 +37,7 @@ class StockHandler(tornado.web.RequestHandler):
     #----------------------------------------------------------------------
     def post(self, *args, **kwargs):
 
-        print(self.request.method, 'args:', str(args))
-
+        print(self.request.method, self.request.uri, 'args:', str(args))
         self.set_header("Access-Control-Allow-Origin", "*")
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')

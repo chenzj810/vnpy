@@ -55,6 +55,7 @@ class MainEngine(object):
 
         self.DB = None
 
+        '''
         # 行情接口gateway接口类型管理，字典，key：gatewayName
         self.marketGatewayDict = OrderedDict()
         self.marketGatewayList = []
@@ -62,6 +63,11 @@ class MainEngine(object):
         # 交易接口gateway接口类型管理，字典，key：gatewayName
         self.tradeGatewayDict = OrderedDict()
         self.tradeGatewayList = []
+        '''
+
+        # 交易接口gateway接口类型管理，字典，key：gatewayName
+        self.gatewayDict = OrderedDict()
+        self.gatewayList = []
 
         # begin chenzejun
         # 风控类型管理，字典，key：riskCtrlName
@@ -117,28 +123,6 @@ class MainEngine(object):
         # 检查标的
         return self.validObjectDict[code]
 
-    #----------------------------------------------------------------------
-    def addGateway(self, gatewayModule):
-        """添加底层接口"""
-        gatewayName = gatewayModule.gatewayName
-
-        # 创建接口实例
-        self.tradeGatewayDict[gatewayName] = gatewayModule.gatewayClass(self.eventEngine,
-                                                                   gatewayName)
-
-        # 设置接口轮询
-        '''
-        if gatewayModule.gatewayQryEnabled:
-            self.tradeGatewayDict[gatewayName].setQryEnabled(gatewayModule.gatewayQryEnabled)
-        '''
-
-        # 保存接口详细信息
-        d = {
-            'gatewayName': gatewayModule.gatewayName,
-            'gatewayDisplayName': gatewayModule.gatewayDisplayName,
-            'gatewayType': gatewayModule.gatewayType
-        }
-        self.tradeGatewayList.append(d)
 
     #----------------------------------------------------------------------
     def addApp(self, appModule):
@@ -162,25 +146,28 @@ class MainEngine(object):
 
     # begin chenzejun
     #----------------------------------------------------------------------
-    def addTradeGatewayClass(self, gatewayModule):
+    def addGatewayClass(self, gatewayModule):
         """添加底层接口"""
 
         gatewayName = gatewayModule.gatewayName
 
         #生成gateway的实例
-        appInst = gatewayModule.gatewayClass(self.eventEngine, self.DB.client)
+        appTradeInst = gatewayModule.gatewayTradeClass(self.eventEngine, self.DB.client)
+        appyMarketInst = gatewayModule.gatewayMarketClass(self.eventEngine, self.DB.client)
 
         # 保存接口详细信息
         d = {
             'gatewayName': gatewayModule.gatewayName,
             'gatewayDisplayName': gatewayModule.gatewayDisplayName,
             'gatewayType': gatewayModule.gatewayType,
-            'gatewayInstance' : appInst
+            'gatewayMarketClass': appyMarketInst,
+            'gatewayTradeClass' : appTradeInst
         }
-        self.tradeGatewayDict[gatewayName] = d
-        self.tradeGatewayList.append(d)
+        self.gatewayDict[gatewayName] = d
+        self.gatewayList.append(d)
 
 
+    '''
     #----------------------------------------------------------------------
     def addMarketGatewayClass(self, gatewayModule):
         """添加底层接口"""
@@ -199,6 +186,7 @@ class MainEngine(object):
         }
         self.marketGatewayDict[gatewayName] = d
         self.marketGatewayList.append(d)
+    '''
 
     #----------------------------------------------------------------------
     def addStrategyClass(self, appModule):
@@ -253,14 +241,10 @@ class MainEngine(object):
         return self.riskCtrlDetailList
 
     #----------------------------------------------------------------------
-    def getAllMarketGatewayList(self):
+    def getAllGatewayList(self):
         """查询引擎中所有上层应用的信息"""
-        return self.marketGatewayList
+        return self.gatewayList
 
-    #----------------------------------------------------------------------
-    def getAllTradeGatewayList(self):
-        """查询引擎中所有上层应用的信息"""
-        return self.tradeGatewayList
 
     #----------------------------------------------------------------------
     def newStrategy(self, appName):

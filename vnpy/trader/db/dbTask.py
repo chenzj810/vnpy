@@ -10,6 +10,6 @@ class DBTaskHandler(Document):
 
     strategy_name = StringField(required=True, max_length=200)
     riskctrl_name = StringField(required=True, max_length=200)
-    market_gateway = StringField(required=True, max_length=200)
-    trade_gateway = StringField(required=True, max_length=200)
+    gateway_name = StringField(required=True, max_length=200)
+    #trade_gateway = StringField(required=True, max_length=200)
 

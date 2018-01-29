@@ -32,8 +32,7 @@ import tornado.web
 from vnpy.trader.http.controller.task import TaskHandler
 from vnpy.trader.http.controller.strategy import StrategyHandler
 from vnpy.trader.http.controller.riskCtrl import RiskCtrlHandler
-from vnpy.trader.http.controller.gwMarket import MarketGatewayHandler
-from vnpy.trader.http.controller.gwTrade import TradeGatewayHandler
+from vnpy.trader.http.controller.gateway import GatewayHandler
 from vnpy.trader.http.controller.stock import StockHandler
 
 
@@ -50,8 +49,7 @@ class HttpHandler(object):
             (r"/task/(\w+)", TaskHandler, dict(mainEngine=mainEngine)),
             (r"/riskctrl/(\w+)", RiskCtrlHandler, dict(mainEngine=mainEngine)),
             (r"/strategy/(\w+)", StrategyHandler, dict(mainEngine=mainEngine)),
-            (r"/marketgw/(\w+)", MarketGatewayHandler, dict(mainEngine=mainEngine)),
-            (r"/tradegw/(\w+)", TradeGatewayHandler, dict(mainEngine=mainEngine)),
+            (r"/gateway/(\w+)", GatewayHandler, dict(mainEngine=mainEngine)),
             (r"/stock/(\w+)", StockHandler, dict(mainEngine=mainEngine))
             ];
 
@@ -62,14 +60,20 @@ class HttpHandler(object):
         app = tornado.web.Application(handlers=self.routeHandler, debug = True)
         #app.listen(8080)
 
-        http_server = tornado.httpserver.HTTPServer(app)
-        http_server.listen(8080)
+        self.http_server = tornado.httpserver.HTTPServer(app)
+        self.http_server.listen(9000)
 
-        print('start http loop')
-        loop = tornado.ioloop.IOLoop.instance()
-        loop.start()
+        print('start http loop, listen 9000')
+        self.loop = tornado.ioloop.IOLoop.instance()
+        self.loop.start()
 
 
+    #----------------------------------------------------------------------
+    def __del__(self):
+        """Disconstructor"""
+        self.http_server.stop()
+        self.loop.stop()
+        tornado.ioloop.IOLoop.clear_instance()
 
     #----------------------------------------------------------------------
     def start(self):

@@ -51,12 +51,9 @@ def main():
     me.DB = DBHandler(me)
 
     # 添加交易接口， 包括行情数据接口和交易接口两部分
-    print("添加gateway接口, addTradeGatewayClass")
-    me.addTradeGatewayClass(eastMoneyGateway)
+    print("添加gateway接口, addGatewayClass")
+    me.addGatewayClass(eastMoneyGateway)
 
-
-    print("添加gateway接口, addMarketGatewayClass")
-    me.addMarketGatewayClass(tushare)
 
     # 添加上层应用, 应用管理
     #me.addApp(strategyManager)

@@ -12,7 +12,7 @@ from vnpy.trader.main.vtObject import VtBarData, VtTickData
 from vnpy.trader.language.vtConstant import EMPTY_STRING
 from vnpy.trader.tradeStrategy.vtStrategyManager import StrategyTemplate
 import talib as ta
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
